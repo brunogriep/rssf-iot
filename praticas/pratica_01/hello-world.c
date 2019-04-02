@@ -38,6 +38,11 @@ PROCESS_THREAD(hello_world_process, ev, data)
      etimer_reset(&et_adc);
    }
 
+<<<<<<< HEAD
+=======
+ printf("Figueira Maior do Estado\n");
+  /************************/
+>>>>>>> 52fe1e07288371613c36226da4c5f4cc79cd7801
 
   PROCESS_END();
 }
