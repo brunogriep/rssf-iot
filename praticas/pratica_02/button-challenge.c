@@ -25,7 +25,7 @@ PROCESS_THREAD(button_process, ev, data)
     sensor = (struct sensors_sensor *)data;
     if(sensor == &button_sensor) {
         int val = batmon_sensor.value(BATMON_SENSOR_TYPE_TEMP);
-        printf("Leu %d \n", val);
+        printf("Leu: %d Celsius \n", val);
     } else {
         printf("Event: %d \n", ev);
     }
