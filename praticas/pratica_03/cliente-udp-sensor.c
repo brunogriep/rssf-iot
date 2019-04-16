@@ -50,6 +50,18 @@ PROCESS_THREAD(udp_client_process, ev, data)
 
   uip_ip6addr(&ipaddr, 0xfd00, 0, 0, 0, 0x212, 0x4b00, 0x1376, 0x4e03);
 
+<<<<<<< HEAD
+=======
+  /********** CONECTANDO AO SERVIDOR UDP **********/
+  // Encontrar endereço IPv6 do servidor
+  static resolv_status_t status = RESOLV_STATUS_UNCACHED;
+  while(status != RESOLV_STATUS_CACHED)
+  {
+      status = set_connection_address(&ipaddr, UDP_CONNECTION_ADDR);
+      PROCESS_WAIT_EVENT();
+  }
+  // Se não utilizar mDNS, use a linha abaixo para registrar IPv6 destino
+>>>>>>> 2c8e60f9f55a1f6e6bef04203c7cd9e3187d4ced
   // uip_ip6addr(&ipaddr, 0xfe80, 0, 0, 0, 0x215, 0x2000, 0x0002, 0x2145);
 
   // Criando socket UDP para conexão com host:porta remoto
