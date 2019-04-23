@@ -64,7 +64,8 @@ PROCESS_THREAD(udp_client_process, ev, data)
   //     PROCESS_WAIT_EVENT();
   // }
   // Se não utilizar mDNS, use a linha abaixo para registrar IPv6 destino
-  uip_ip6addr(&ipaddr, 0xfd00, 0x0000, 0x0000, 0x0000, 0x0212, 0x4b00, 0x0d2d, 0x0306);
+//  uip_ip6addr(&ipaddr, 0xfd00, 0x0000, 0x0000, 0x0000, 0x0212, 0x4b00, 0x0d2d, 0x0306);
+  uip_ip6addr(&ipaddr, 0xfd00, 0x0000, 0x0000, 0x0000, 0x0212, 0x4b00, 0x1371, 0xbb06);
 
   // Criando sockets UDP para conexão com host:porta remoto
   temp_client_conn = udp_new(&ipaddr, UIP_HTONS(CONN_PORT_TEMP), NULL);

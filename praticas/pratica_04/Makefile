@@ -4,7 +4,7 @@ BOARD = launchpad/cc1350
 
 # Qual nossa aplicação/projeto?
 CONTIKI_PROJECT = cliente-udp-sensor
-# CONTIKI_PROJECT = servidor-udp cliente-udp-sensor
+ #CONTIKI_PROJECT = servidor-udp cliente-udp-sensor
 
 # Quais outros arquivos precisamos compilar?
 PROJECT_SOURCEFILES += uip_utils.c mdns_utils.c

@@ -63,6 +63,8 @@ static void leds_udp_handler(void)
          *** esta parte do programa.
          ***/
         case 0: //verde
+            leds_off(LEDS_ALL);
+            leds_oN(LEDS_GREEN);
             /*** COLOQUE AQUI SEU CÓDIGO
              ***   Modifique o estado do LED verde
              ***   conforme o comando recebido (cmd)
@@ -70,6 +72,8 @@ static void leds_udp_handler(void)
             break;
 
         case 1: //vermelho
+            leds_off(LEDS_ALL);
+            leds_oN(LEDS_RED);
             /*** COLOQUE AQUI SEU CÓDIGO
              ***   Modifique o estado do LED vermelho
              ***   conforme o comando recebido (cmd)
@@ -77,6 +81,8 @@ static void leds_udp_handler(void)
             break;
 
         case 2: //ambos
+            leds_off(LEDS_ALL);
+            leds_oN(LEDS_ALL);
             /*** COLOQUE AQUI SEU CÓDIGO
              ***   Modifique o estado de todos os LEDs
              ***   conforme o comando recebido (cmd)
