@@ -80,7 +80,7 @@ PROCESS_THREAD(mqttsn_process, ev, data)
   process_start(&cetic_6lbr_client_process, NULL);
 
   // Configura IPv6 do broker MQTT-SN
-  uip_ip6addr(&broker_addr, 0x2801, 0x84, 0x0, 0x1010, 0x9a4a, 0x2439, 0xc1b5, 0x563a);
+  uip_ip6addr(&broker_addr, 0x2801, 0x84, 0x0, 0x1010, 0x16dc, 0xc60f, 0x89b2, 0x61d4);
 
   // Cria socket para MQTT-SN
   mqtt_sn_create_socket(&mqtt_sn_c, UDP_CONNECTION_PORT, &broker_addr, UDP_CONNECTION_PORT);
@@ -140,7 +140,7 @@ PROCESS_THREAD(mqttsn_process, ev, data)
       PROCESS_WAIT_EVENT();
       if(etimer_expired(&periodic_timer))
       {
-        leds_toggle(LEDS_ALL);
+        //leds_toggle(LEDS_ALL);
         etimer_restart(&periodic_timer);
       }
     }
@@ -215,7 +215,19 @@ static void publish_receiver(struct mqtt_sn_connection *mqc,
   //publish_packet_t* pkt = (publish_packet_t*)data;
   memcpy(&incoming_packet, data, datalen);
   incoming_packet.data[datalen-7] = 0x00;
-  printf("Published message received: %s\n", incoming_packet.data);
+  printf("Published message received: %s \n",  incoming_packet.data);
+  printf("data: %d, datalen %d\n", data[0], datalen);
+
+  int ret;
+  ret = strcmp(incoming_packet.data, "0");
+
+  if(!ret) {
+      leds_off(LEDS_ALL);
+  } else {
+      leds_on(LEDS_ALL);
+  }
+
+
   //see if this message corresponds to ctrl channel subscription request
   if (uip_htons(incoming_packet.topic_id) == ctrl_topic_id)
   {
